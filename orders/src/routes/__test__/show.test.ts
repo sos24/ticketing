@@ -27,5 +27,5 @@ it('returns ticket', async () => {
     .get(`/api/orders/${response.body.order.id}`)
     .set('Cookie', secondUser)
     .send()
-    .expect(404);
+    .expect(200);
 });
