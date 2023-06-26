@@ -8,6 +8,8 @@ import { ExpirationCompleteListener } from './events/listeners/expiration-comple
 import { PaymentCreatedListener } from './events/listeners/paymen-created-listener';
 
 const start = async () => {
+  console.log('Starting orders');
+
   if (!process.env.JWT_KEY) {
     throw new Error('JWT_KEY not set');
   }
@@ -15,9 +17,11 @@ const start = async () => {
   if (!process.env.NATS_CLUSTER_ID) {
     throw new Error('NATS_CLUSTER_ID not set');
   }
+
   if (!process.env.NATS_CLIENT_ID) {
     throw new Error('NATS_CLIENT_ID not set');
   }
+
   if (!process.env.NATS_URL) {
     throw new Error('NATS_URL not set');
   }
@@ -54,10 +58,12 @@ const start = async () => {
 
     const paymentCreated = new PaymentCreatedListener(natsWrapper.client);
     paymentCreated.listen();
+
     await mongoose.connect(
       `mongodb://${process.env.MONGO_URI}:27017/${process.env.MONGO_DB_NAME}`
     );
-    console.log('auth connected to db');
+
+    console.log('auth connected to db !!!!!!!!!!!');
   } catch (e) {
     console.error(e);
   }
