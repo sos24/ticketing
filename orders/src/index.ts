@@ -9,6 +9,7 @@ import { PaymentCreatedListener } from './events/listeners/paymen-created-listen
 
 const start = async () => {
   console.log('Starting orders');
+
   if (!process.env.JWT_KEY) {
     throw new Error('JWT_KEY not set');
   }
@@ -16,9 +17,11 @@ const start = async () => {
   if (!process.env.NATS_CLUSTER_ID) {
     throw new Error('NATS_CLUSTER_ID not set');
   }
+
   if (!process.env.NATS_CLIENT_ID) {
     throw new Error('NATS_CLIENT_ID not set');
   }
+
   if (!process.env.NATS_URL) {
     throw new Error('NATS_URL not set');
   }
