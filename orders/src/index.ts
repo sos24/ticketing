@@ -58,10 +58,12 @@ const start = async () => {
 
     const paymentCreated = new PaymentCreatedListener(natsWrapper.client);
     paymentCreated.listen();
+
     await mongoose.connect(
       `mongodb://${process.env.MONGO_URI}:27017/${process.env.MONGO_DB_NAME}`
     );
-    console.log('auth connected to db');
+
+    console.log('auth connected to db !!!!!!!!!!!');
   } catch (e) {
     console.error(e);
   }
