@@ -8,7 +8,7 @@ it('returns 404 if order not founded', async () => {
     .get(`/api/orders/${id}`)
     .set('Cookie', global.signup())
     .send()
-    .expect(200);
+    .expect(404);
 });
 it('returns 401 if user not provided', async () => {
   const id = new mongoose.Types.ObjectId().toHexString();
@@ -27,5 +27,5 @@ it('returns ticket', async () => {
     .get(`/api/orders/${response.body.order.id}`)
     .set('Cookie', secondUser)
     .send()
-    .expect(200);
+    .expect(404);
 });
