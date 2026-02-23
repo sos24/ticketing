@@ -1,9 +1,0 @@
-name: tickets-tests
-on:
-  workflow_dispatch
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: cd tickets && npm instal && npm run test:ci
