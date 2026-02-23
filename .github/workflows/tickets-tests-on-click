@@ -1,8 +1,6 @@
 name: tickets-tests
 on:
-  pull_request:
-    paths:
-      - 'tickets/**'
+  workflow_dispatch
 jobs:
   build:
     runs-on: ubuntu-latest
